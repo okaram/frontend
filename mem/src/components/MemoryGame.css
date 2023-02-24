@@ -1,0 +1,13 @@
+.Card {
+    max-width: 18%;
+    max-height: 250px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+  
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  
