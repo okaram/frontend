@@ -44,10 +44,10 @@ function shuffleArray(array,n) {
     return array;
 }
 
-function getSome(n,used,full, numCards) {
+function getSome(numCards,used,full) {
     full=shuffleArray(full,numCards);
     let ans=[];
-    for(let j=0; j<n; ++j)
+    for(let j=0; j<numCards; ++j)
         ans.push(full[j]);
     return ans;     
 }
@@ -88,12 +88,11 @@ export function MemoryGame(props) {
             setGame(mergeDicts(game,{playing:false}));            
         } else {
             game.used.push(c);
-            game.score+=1;
-            setGame(Object.assign({},game));
+            setGame(mergeDicts(game,{used: game.used, score: game.score+1}));
             console.log('NOT used',c);
         }
     }
-    let cards=getSome(numCards,game.used,game.full,numCards);
+    let cards=getSome(numCards,game.used,game.full);
     return <div >
         <ScoreBoard games={stats.games} score={game.score} playing={game.playing} 
             maxScore={stats.maxScore} 
