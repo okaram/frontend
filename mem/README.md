@@ -18,7 +18,7 @@ I created the following components:
 
 This component keeps no state, and displays one card.
 
-```
+```js
 function Card(props) {
     let url=`PNG-cards-1.3/${props.rank}_of_${props.suit}.png`;
     return <img 
